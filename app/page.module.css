@@ -1,0 +1,35 @@
+.main {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.mapContainer {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.chatContainer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 400px;
+  max-height: 600px;
+  z-index: 1000;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .chatContainer {
+    width: calc(100% - 40px);
+    max-height: 400px;
+  }
+}
+
