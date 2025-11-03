@@ -1,15 +1,15 @@
 # Nika Location Intelligence Chatbot
 
-A location intelligence chatbot that uses Vercel AI SDK and OpenAI LLM to display different locations on a map as recommendations for Nika employees.
+A location intelligence chatbot application that leverages Vercel AI SDK and OpenAI LLM to help Nika employees discover and visualize locations on an interactive map interface.
 
 ## Features
 
-- **Interactive Map**: MapLibreJS map as the centerpiece of the UI
-- **Chatbot Interface**: AI-powered chatbot for location queries with scrollable conversation
-- **Location Search**: Tool calling integration with Nominatim API for searching locations, places, and addresses
-- **GeoJSON Display**: Shows search results as polygons and points on the map
-- **Streaming Responses**: Real-time streaming of AI responses (Bonus ✅)
-- **Reverse Geocoding**: Convert coordinates to location addresses (Bonus ✅)
+- **Interactive Map Interface**: MapLibreJS-powered map as the primary UI component with OpenStreetMap tile integration
+- **AI Chatbot Interface**: Intelligent conversational interface with scrollable message history
+- **Location Search**: Integrated tool calling with Nominatim API for comprehensive location, place, and address searches
+- **GeoJSON Visualization**: Displays search results as both polygon regions and point markers on the map
+- **Real-time Streaming**: Live streaming of AI responses for enhanced user experience
+- **Reverse Geocoding**: Convert geographic coordinates to human-readable location addresses
 
 ## Setup
 
@@ -32,15 +32,20 @@ npm run dev
 
 ## Usage
 
-Ask the chatbot questions like:
-- "Find coffee shops in Paris"
-- "Show me restaurants in Tokyo"
-- "Where can I find parks in New York?"
-- "Search for India Gate in New Delhi"
-- "What's at coordinates 40.7128, -74.0060?" (reverse geocoding)
-- Enter coordinates directly like: `40.7128, -74.0060`
+The chatbot supports two main types of queries:
 
-The chatbot will automatically use the appropriate tool to search for locations and display them on the map with GeoJSON layers. Click on location names in the chat to zoom to them on the map.
+**Location Search**
+- Search for specific places or addresses: "India Gate, New Delhi", "Eiffel Tower, Paris"
+- Search for types of places with location context: "restaurants in Tokyo", "cafes in Delhi", "parks in New York"
+- Requires: Specific place types (not generic terms) and location context (city, region, or country)
+
+**Reverse Geocoding**
+- Query coordinates to get location information: "What's at 40.7128, -74.0060?"
+- Direct coordinate input: Enter latitude and longitude separated by comma (e.g., `40.7128, -74.0060`)
+
+Search results are displayed on the map using GeoJSON layers. Users can click on location names in the chat interface to zoom to those locations on the map.
+
+**Note**: Generic queries like "fun spots" or "hangout places" are not supported. Use specific place types (restaurant, cafe, park, museum) with location context.
 
 ## Project Structure
 
@@ -77,32 +82,37 @@ nika/
 
 ## Implementation Details
 
-### Part 1: AI SDK ✅
+### Part 1: AI SDK Integration
 - Configured Vercel AI SDK with OpenAI provider
-- Authenticated requests using environment variable
-- Proper data format for queries and responses
+- Secure authentication using environment variables
+- Structured data format for queries and responses
 
-### Part 2: Frontend Map Interface ✅
-- MapLibreJS map as the centerpiece
-- Chatbot positioned over the map (bottom-left)
-- Scrollable conversation display
-- Clean, functional UI
+### Part 2: Frontend Map Interface
+- MapLibreJS map implementation with OpenStreetMap tiles
+- Chatbot interface positioned as overlay on map (bottom-left corner)
+- Scrollable conversation interface with message history
+- Responsive and functional UI design
 
-### Part 3: API Endpoints ✅
-- Secure API key handling via environment variables
+### Part 3: API Endpoints
+- Secure API key management via environment variables
 - GPT-5-mini model configuration
-- Proper request/response processing
+- Proper request/response handling and error management
 
-### Part 4: Tool Calling ✅
-- Nominatim API integration via tool calling
-- GeoJSON format for map layers
-- Polygon and Point geometry support
-- Automatic map updates on tool results
-- Clickable location names in chat to zoom on map
+### Part 4: Tool Calling Implementation
+- Nominatim API integration through AI SDK tool calling mechanism
+- GeoJSON format implementation for map layer rendering
+- Support for both Polygon and Point geometry types
+- Automatic map updates when tool results are received
+- Interactive location names in chat that trigger map zoom
 
-### Bonus Features ✅
-1. **Streaming**: Responses stream in real-time using `useChat` hook from AI SDK
-2. **Reverse Geocoding**: Tool to convert coordinates to location addresses
-   - Users can enter coordinates (e.g., `40.7128, -74.0060`) to get location information
-   - Displays location name and address on the map
+### Additional Features
+
+**Real-time Streaming**
+- AI responses stream in real-time using the `useChat` hook from AI SDK
+- Enhanced user experience with progressive response rendering
+
+**Reverse Geocoding**
+- Dedicated tool for converting geographic coordinates to location addresses
+- Supports direct coordinate input (e.g., `40.7128, -74.0060`)
+- Displays formatted location names and addresses on the map
 
