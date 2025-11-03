@@ -1,4 +1,4 @@
-# Nika Location Intelligence Chatbot
+# Location Intelligence Chatbot
 
 A location intelligence chatbot application that leverages Vercel AI SDK and OpenAI LLM to help Nika employees discover and visualize locations on an interactive map interface.
 
