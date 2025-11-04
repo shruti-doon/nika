@@ -1,6 +1,6 @@
 # Location Intelligence Chatbot
 
-A location intelligence chatbot application that leverages Vercel AI SDK and OpenAI LLM to help Nika employees discover and visualize locations on an interactive map interface.
+A location intelligence chatbot application that leverages Vercel AI SDK and OpenAI LLM
 
 ## Features
 
@@ -72,7 +72,7 @@ nika/
 
 ## Tech Stack
 
-- **Next.js 14**: React framework with App Router
+- **Next.js **: React framework with App Router
 - **Vercel AI SDK**: For LLM integration and streaming
 - **OpenAI GPT-5-mini**: Language model (using provided API key)
 - **MapLibre GL JS**: Map rendering with OpenStreetMap tiles
